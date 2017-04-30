@@ -1,36 +1,36 @@
-require_relative './command_not_supported_error'
+module MarsRovers
+  class ControlApi
+    CONTROL_UNIT_API = %w[L R M].freeze
 
-class ControlApi
-  CONTROL_UNIT_API = %w[L R M].freeze
-
-  def initialize(rover)
-    @rover = rover
-  end
-
-  def interpret(command)
-    raise CommandNotSupportedError unless CONTROL_UNIT_API.include?(command)
-
-    case command
-    when 'L' then
-      turn_left
-    when 'R' then
-      turn_right
-    when 'M' then
-      move
+    def initialize(rover)
+      @rover = rover
     end
-  end
 
-  private
+    def interpret(command)
+      raise CommandNotSupportedError unless CONTROL_UNIT_API.include?(command)
 
-  def turn_left
-    @rover.direction = @rover.direction.left
-  end
+      case command
+      when 'L' then
+        turn_left
+      when 'R' then
+        turn_right
+      when 'M' then
+        move
+      end
+    end
 
-  def turn_right
-    @rover.direction = @rover.direction.right
-  end
+    private
 
-  def move
-    @rover.position = @rover.direction.forward(@rover.position)
+    def turn_left
+      @rover.direction = @rover.direction.left
+    end
+
+    def turn_right
+      @rover.direction = @rover.direction.right
+    end
+
+    def move
+      @rover.position = @rover.direction.forward(@rover.position)
+    end
   end
 end

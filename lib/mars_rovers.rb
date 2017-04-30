@@ -4,8 +4,7 @@ require_relative '../lib/mars_rovers/compass'
 require_relative '../lib/mars_rovers/command_center'
 require_relative '../lib/mars_rovers/control_api'
 require_relative '../lib/mars_rovers/position'
-require_relative '../lib/mars_rovers/command_not_supported_error'
-require_relative '../lib/mars_rovers/out_of_planet_error'
+require_relative '../lib/mars_rovers/errors'
 
 module MarsRovers
   planet = Planet.new(5, 5)
