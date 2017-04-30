@@ -35,22 +35,21 @@ require_relative '../lib/mars_rovers/errors'
 # end
 #
 module MarsRovers
-	orders = File.new('./test_input.txt', 'r')
+  orders = File.new('./test_input.txt', 'r')
 
-	planet ||= orders.readline.split(' ')
+  planet ||= orders.readline.split(' ')
 
-	planet = Planet.new(planet[0].to_i, planet[1].to_i)
+  planet = Planet.new(planet[0].to_i, planet[1].to_i)
 
-	until orders.eof?
-		x, y, direction = orders.readline.split(' ')
-		commands = orders.readline.chomp.split('')
+  until orders.eof?
+    x, y, direction = orders.readline.split(' ')
+    commands = orders.readline.chomp.split('')
 
-		rover = Rover.new.drop_on_planet(planet, x.to_i, y.to_i, direction)
+    rover = Rover.new.drop_on_planet(planet, x.to_i, y.to_i, direction)
 
-		CommandCenter.send(commands.join, rover)
+    CommandCenter.send(commands.join, rover)
 
-		puts rover
+    puts rover
 
-	end
-
+  end
 end
