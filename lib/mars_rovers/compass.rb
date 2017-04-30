@@ -1,5 +1,4 @@
 module Compass
-
   class North
     def left
       WEST
@@ -14,7 +13,7 @@ module Compass
     end
 
     def to_s
-      "N"
+      'N'
     end
   end
 
@@ -32,7 +31,7 @@ module Compass
     end
 
     def to_s
-      "E"
+      'E'
     end
   end
 
@@ -50,7 +49,7 @@ module Compass
     end
 
     def to_s
-      "W"
+      'W'
     end
   end
 
@@ -68,7 +67,7 @@ module Compass
     end
 
     def to_s
-      "S"
+      'S'
     end
   end
 
@@ -78,14 +77,13 @@ module Compass
   WEST = West.new
 
   DIRECTIONS = {
-      "N" => NORTH,
-      "E" => EAST,
-      "W" => WEST,
-      "S" => SOUTH
-  }
+    'N' => NORTH,
+    'E' => EAST,
+    'W' => WEST,
+    'S' => SOUTH
+  }.freeze
 
   def self.get_direction_by_name(direction)
     DIRECTIONS[direction]
   end
-
 end

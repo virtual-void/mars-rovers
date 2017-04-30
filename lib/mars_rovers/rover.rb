@@ -5,7 +5,7 @@ class Rover
 
   include Observable
 
-  def initialize()
+  def initialize
     @control_unit = ControlApi.new(self)
   end
 
@@ -13,7 +13,7 @@ class Rover
     @position = position
     @direction = direction
 
-    self.add_observer(planet)
+    add_observer(planet)
     changed; notify_observers(self)
 
     self
@@ -27,5 +27,4 @@ class Rover
   def to_s
     "#{position} #{direction}"
   end
-
 end

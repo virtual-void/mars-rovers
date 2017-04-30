@@ -18,5 +18,4 @@ module MarsRovers
 
   puts rover1
   puts rover2
-
 end

@@ -1,8 +1,7 @@
-require_relative "./command_not_supported_error"
+require_relative './command_not_supported_error'
 
 class ControlApi
-
-  CONTROL_UNIT_API = ['L', 'R', 'M']
+  CONTROL_UNIT_API = %w[L R M].freeze
 
   def initialize(rover)
     @rover = rover
@@ -12,12 +11,12 @@ class ControlApi
     raise CommandNotSupportedError unless CONTROL_UNIT_API.include?(command)
 
     case command
-      when 'L' then
-        turn_left
-      when 'R' then
-        turn_right
-      when 'M' then
-        move
+    when 'L' then
+      turn_left
+    when 'R' then
+      turn_right
+    when 'M' then
+      move
     end
   end
 
@@ -34,5 +33,4 @@ class ControlApi
   def move
     @rover.position = @rover.direction.forward(@rover.position)
   end
-
 end

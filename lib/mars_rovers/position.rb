@@ -8,13 +8,13 @@ module Compass
     end
 
     def add(position)
-      @x = @x + position.x
-      @y = @y + position.y
+      @x += position.x
+      @y += position.y
       self
     end
 
     def to_s
-      "#{@x},#{@y}"
+      "#{@x} #{@y}"
     end
   end
 
@@ -22,5 +22,4 @@ module Compass
   TO_WEST = Position.new(-1, 0)
   TO_EAST = Position.new(1, 0)
   TO_SOUTH = Position.new(0, -1)
-
 end
