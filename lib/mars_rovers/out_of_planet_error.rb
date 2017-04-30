@@ -1,0 +1,2 @@
+class OutOfPlanetError < StandardError
+end

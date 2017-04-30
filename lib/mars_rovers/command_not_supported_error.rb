@@ -1,0 +1,2 @@
+class CommandNotSupportedError < StandardError
+end
