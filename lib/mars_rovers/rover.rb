@@ -6,6 +6,8 @@ class Rover
   include Observable
 
   def initialize
+    @position = Compass::Position.new(0, 0)
+    @direction = Compass::NORTH
     @control_unit = ControlApi.new(self)
   end
 
