@@ -1,3 +1,20 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+
+require 'optparse'
+
+ARGV << '-h' if ARGV.empty?
+
+OptionParser.new do |opts|
+  opts.banner = "Runs the rover with instructions from input file.\n\nUsage: bin/run [--help] INPUT_FILE"
+
+  opts.on_tail('-h', '--help', 'Prints this help') do
+    puts opts
+    exit
+  end
+end.parse!
+
 require_relative '../lib/mars_rovers/planet'
 require_relative '../lib/mars_rovers/rover'
 require_relative '../lib/mars_rovers/compass'
@@ -7,7 +24,7 @@ require_relative '../lib/mars_rovers/position'
 require_relative '../lib/mars_rovers/errors'
 
 module MarsRovers
-  orders = File.new('./test_input.txt', 'r')
+  orders = File.new(*ARGV, 'r')
 
   planet ||= orders.readline.split(' ')
 

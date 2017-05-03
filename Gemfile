@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in mars_rovers.gemspec
-gemspec
+group :test do
+  gem 'rspec', '~> 3.x'
+  # gem 'rubocop', '~> 0.40.0', require: false
+end
